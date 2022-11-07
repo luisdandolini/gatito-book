@@ -1,3 +1,5 @@
+import { NovoUsuario } from './novo-usuario';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +7,9 @@ import { Injectable } from '@angular/core';
 })
 export class NovoUsuarioService {
 
-  constructor() { }
+  constructor(private hhtp:HttpClient) { }
+
+  cadastraNovoUsuario(novoUsuario: NovoUsuario){
+    return this.hhtp.post('http://localhost:3000/user/signup', novoUsuario);
+  }
 }
